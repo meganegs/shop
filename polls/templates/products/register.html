@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% for message in message %}
+<h1 style="color: green;"></h1>
+
+{% endfor %}
+<center>
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        
+        <button type="submit">Save</button>
+    </form>
+</center>
+{% endblock %}
