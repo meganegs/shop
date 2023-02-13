@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
+
 
 # Create your views here.
 def boucherie(request):
@@ -18,3 +20,5 @@ def poissonnerie(request):
 
 def boissons(request):
     return render(request, 'boissons/Boissons.html')
+
+

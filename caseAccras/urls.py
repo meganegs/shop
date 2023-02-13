@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-from contact.views import contact
 from polls.views import accueil, connexion, deconnexion, register, cgu, cgv,infos, mentionLegale
 from boutique.views import boucherie, boulangerie, epicerie, maraicher, boissons, poissonnerie
 from blog.views import blog
+from payments.views import wishlist
+from contact.views import contact
 
 
 
@@ -33,7 +34,7 @@ urlpatterns = [
     path('cgv/', cgv, name='cgv'),
     path('mentionLegale/', mentionLegale, name='mentionLegale'),
 
-
-
+    #Cart
+    path('wishlist/', wishlist, name='wishlist'),
 
 ]
