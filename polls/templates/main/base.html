@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,12 +10,13 @@
     <title>{% block title %} Shop Case{% endblock %}</title>
 
        <!-- Bootstrap Core CSS -->
-       <link href="polls/css/bootstrap.min.css" rel="stylesheet">
-       <link href="polls/css/animate.css" rel="stylesheet">
-       <link href="polls/css/plugins.css" rel="stylesheet">
+       {% load static %}
+       <link href="{% static 'polls/css/bootstrap.min.css' %}" rel="stylesheet">
+       <link href="{% static 'polls/css/animate.css' %}" rel="stylesheet">
+       <link href="{% static 'polls/css/' %}" rel="stylesheet">
    
        <!-- Custom CSS -->
-       {% load static %}
+       
        <link rel="stylesheet" href="{% static 'polls/style.css' %}"> 
        <link rel="stylesheet" href="{% static 'polls/css/style.css' %}"> 
        <link rel="stylesheet" href="{% static 'polls/css/open-iconic-bootstrap.min.css' %}">
@@ -38,8 +40,8 @@
    
        <!-- Custom Fonts -->
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-       <link href="polls/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-       <link href="polls/css/pe-icons.css" rel="stylesheet">
+       <link href="{% static 'polls/font-awesome-4.1.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+       <link href="{% static 'polls/css/pe-icons.css' %}" rel="stylesheet">
    
 
        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
@@ -49,52 +51,56 @@
        
 </head>
 <body>
+  
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-            <div class="container">
-              <a class="navbar-brand" href="/">La Case à Accras </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="oi oi-menu"></span> Menu
-              </button>
-    
-              <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="/" class="nav-link">Accueil</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nos produits</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="{% url 'epicerie' %}">Epicerie</a>
-                            <a class="dropdown-item" href="{% url 'poissonnerie' %}">Poissonnerie</a>
-                            <a class="dropdown-item" href="{% url 'boucherie' %}">Boucherie</a>
-                            <a class="dropdown-item" href="{% url 'boulangerie' %}">Boulangerie</a>
-                            <a class="dropdown-item" href="{% url 'boissons' %}">Boissons</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">A-propos</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="{% url 'blog' %}">Blog</a>
-                            <a class="dropdown-item" href="{% url 'infos' %}">Infos</a>
-                            <a class="dropdown-item" href="{% url 'cgu' %}">CGU</a>
-                            <a class="dropdown-item" href="{% url 'mentionLegale' %}">Mention légale</a>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
-                   
-                    <li class="nav-item dropdown cta cta-colored">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Panier<span class="icon-shopping_cart"></span>[0]</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="wishlist.html">Wishlist</a>
-                            <a class="dropdown-item" href="checkout.html">Checkout</a>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Connexion</a></li>
-                    <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Deconnexion</a></li>
-
-                </ul>
-              </div>
+          <div class="container">
+            <a class="navbar-brand" href="/">
+              <img src="{% static 'polls/images/logo.png' %}" id="logA" alt="" srcset="" style="height: 80px; width: 80px;">
+            </a>
+            {% block sideBar %}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="oi oi-menu"></span> Menu
+            </button>
+        
+            <div class="collapse navbar-collapse" id="ftco-nav">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item"><a href="/" class="nav-link">Accueil</a></li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nos produits</a>
+                      <div class="dropdown-menu" aria-labelledby="dropdown04">
+                          <a class="dropdown-item" href="{% url 'epicerie' %}">Epicerie</a>
+                          <a class="dropdown-item" href="{% url 'poissonnerie' %}">Poissonnerie</a>
+                          <a class="dropdown-item" href="{% url 'boucherie' %}">Boucherie</a>
+                          <a class="dropdown-item" href="{% url 'boulangerie' %}">Boulangerie</a>
+                          <a class="dropdown-item" href="{% url 'boissons' %}">Boissons</a>
+                      </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">A-propos</a>
+                      <div class="dropdown-menu" aria-labelledby="dropdown04">
+                          <a class="dropdown-item" href="#">Blog</a>
+                          <a class="dropdown-item" href="{% url 'infos' %}">Infos</a>
+                          <a class="dropdown-item" href="{% url 'cgu' %}">CGU</a>
+                          <a class="dropdown-item" href="{% url 'mentionLegale' %}">Mention légale</a>
+                      </div>
+                  </li>
+                  <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+                 
+                  <li class="nav-item dropdown cta cta-colored">
+                      <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Panier<span class="icon-shopping_cart"></span>[0]</a>
+                      <div class="dropdown-menu" aria-labelledby="dropdown04">
+                          <a class="dropdown-item" href="wishlist.html">Wishlist</a>
+                          <a class="dropdown-item" href="checkout.html">Checkout</a>
+                      </div>
+                  </li>
+       
+              </ul>
             </div>
+            {% endblock %}
+          </div>
         </nav>
+
         
     <div class="container">
         {% block content %}

@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+{% block sideBar %}
+
+<div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="{% static '../../static/polls/images/logo.png' %}" id="logA" alt="" srcset="" style="height: 150px; width: 150px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="oi oi-menu"></span> Menu
+    </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="/" class="nav-link">Accueil</a></li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nos produits</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="{% url 'epicerie' %}">Epicerie</a>
+                  <a class="dropdown-item" href="{% url 'poissonnerie' %}">Poissonnerie</a>
+                  <a class="dropdown-item" href="{% url 'boucherie' %}">Boucherie</a>
+                  <a class="dropdown-item" href="{% url 'boulangerie' %}">Boulangerie</a>
+                  <a class="dropdown-item" href="{% url 'boissons' %}">Boissons</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">A-propos</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="{% url 'blog' %}">Blog</a>
+                  <a class="dropdown-item" href="{% url 'infos' %}">Infos</a>
+                  <a class="dropdown-item" href="{% url 'cgu' %}">CGU</a>
+                  <a class="dropdown-item" href="{% url 'mentionLegale' %}">Mention légale</a>
+              </div>
+          </li>
+          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+         
+          <li class="nav-item dropdown cta cta-colored">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Panier<span class="icon-shopping_cart"></span>[0]</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="wishlist.html">Wishlist</a>
+                  <a class="dropdown-item" href="checkout.html">Checkout</a>
+              </div>
+          </li>
+          <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Connexion</a></li>
+          <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Deconnexion</a></li>
+
+      </ul>
+    </div>
+</div>
+
+{% endblock %}
+
+
